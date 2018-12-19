@@ -13,6 +13,7 @@
   },
   "devDependencies": {
     "@mysql/xdevapi": "^8.0.13",
-    "express": "^4.16.4"
+    "express": "^4.16.4",
+    "body-parser": "^1.18.3"
   }
 }

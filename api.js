@@ -25,5 +25,16 @@ let query = function (sql, values) {
     })
   })
 }
+// let update = function (sql, values) {
+//   return new Promise((resolve, reject) => {
+//     pool.getConnection(function (err, connection) {
+//       if (err) {
+//         reject(err);
+//       } else {
+//         connection.update()
+//       }
+//     });
+//   });
+// }
 mysqlService.query = query;
 module.exports = mysqlService;
