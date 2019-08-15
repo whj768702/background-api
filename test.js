@@ -2,7 +2,6 @@ const express = require('express');
 const mysql = require('mysql');
 const mysqlService = require('./api.js');
 const bodyParser = require('body-parser');
-const multer = require('multer');
 
 const app = express();
 
@@ -86,6 +85,27 @@ app.post('/addHero', async function(req, res) {
   } else {
     res.send({
       status: false,
+      msg: '参数错误'
+    });
+  }
+});
+app.delete('/:id', async function (req, res) {
+  const id = parseInt(req.params.id);
+  if (id) {
+    const result = await mysqlService.query(`delete from angular.hero_list where id=?`, [id]);
+    if (result.affectedRows === 1) {
+      res.send({
+        msg: '删除成功',
+        status: true
+      });
+    } else {
+      res.send({
+        msg: '删除失败',
+        status: false
+      });
+    }
+  } else {
+    res.send({
       msg: '参数错误'
     });
   }
